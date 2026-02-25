@@ -1,0 +1,197 @@
+[
+  {
+    "id": "3",
+    "title": "Orbital AI Framework",
+    "description": "Local-first agentic AI framework achieving 50% fewer LLM calls through optimized 7-node LangGraph architecture. Features real-time SSE streaming, 16 Google API integrations, and resource-conscious GPU memory management for production deployment with sub-100ms latency.",
+    "category": "AI/ML",
+    "technologies": [
+      "Python 3.11+",
+      "LangGraph",
+      "Next.js 14+",
+      "Local LLMs (LM Studio/Ollama)",
+      "Server-Sent Events",
+      "Google APIs",
+      "OAuth2"
+    ],
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=800&fit=crop&q=90",
+    "liveUrl": "",
+    "githubUrl": "",
+    "featured": true,
+    "order": 1
+  },
+  {
+    "id": "6",
+    "title": "ERP Data Analyst Agent",
+    "description": "Production AI system processing 100K+ financial records daily with 95%+ accuracy. Deployed in live ERP environments, reducing analysis time from hours to minutes through intelligent query understanding, automated reporting, and 60% API cost reduction via caching.",
+    "category": "Enterprise/AI",
+    "technologies": [
+      "FastAPI",
+      "PostgreSQL",
+      "Redis",
+      "Python",
+      "LangChain",
+      "Pandas",
+      "NumPy",
+      "REST APIs"
+    ],
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop&q=90",
+    "liveUrl": "",
+    "githubUrl": "",
+    "featured": true,
+    "order": 2
+  },
+  {
+    "id": "8",
+    "title": "DigiPin.dev & DigiPin.org - India's Postal Service API Platform",
+    "description": "Official API platform for India's DigiPin postal algorithm. Production service providing digital PIN generation and validation for national postal infrastructure with sub-50ms response times, 99.9% uptime, and multi-region deployment handling thousands of daily requests.",
+    "category": "API/Backend",
+    "technologies": [
+      "Next.js",
+      "Convex",
+      "Redis",
+      "Docker",
+      "JWT",
+      "REST APIs"
+    ],
+    "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=800&fit=crop&q=90",
+    "liveUrl": "https://digipin.org/",
+    "githubUrl": "",
+    "featured": true,
+    "order": 3
+  },
+  {
+    "id": "7",
+    "title": "Smart Meter Dashboard - KSEB Smart Meter Emulation & Sustainability Platform",
+    "description": "Real-time smart electricity meter monitoring and emulation for Kerala State Electricity Board. AI-powered consumption analytics, predictive maintenance, and sustainability insights with InfluxDB time-series storage. Winner of iHack 2025 demonstrating 30% potential energy savings.",
+    "category": "IoT/AI",
+    "technologies": [
+      "Next.js",
+      "FastAPI",
+      "InfluxDB",
+      "Python",
+      "TypeScript",
+      "Docker",
+      "AI Analytics"
+    ],
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&h=800&fit=crop&q=90",
+    "liveUrl": "",
+    "githubUrl": "",
+    "featured": true,
+    "order": 4
+  },
+  {
+    "id": "9",
+    "title": "Cek Lumiere - National Level Techno-Cultural Fest Website",
+    "description": "Official website for Cek Lumiere national-level festival. Managed 5000+ participant registrations with real-time event updates, live leaderboards, and interactive campus experience. Built with Next.js achieving 99.9% uptime during peak traffic with mobile-first responsive design.",
+    "category": "Web Development",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
+    "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&h=800&fit=crop&q=90",
+    "liveUrl": "https://ceklumiere.in/",
+    "githubUrl": "",
+    "featured": false,
+    "order": 5
+  },
+  {
+    "id": "5",
+    "title": "UrbanAI - Climate Digital Twin",
+    "description": "Real-time climate impact analysis for smart cities using NASA Earth Engine satellite data. AI-powered municipal intervention recommendations and urban planning insights with predictive climate modeling and interactive GeoJSON visualization for data-driven urban resilience planning.",
+    "category": "AI/Climate",
+    "technologies": [
+      "NASA Earth Engine",
+      "AI Analysis",
+      "GeoJSON",
+      "Climate Modeling",
+      "Urban Planning",
+      "Python"
+    ],
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=800&fit=crop&q=90",
+    "liveUrl": "",
+    "githubUrl": "",
+    "featured": false,
+    "order": 6
+  },
+  {
+    "id": "10",
+    "title": "AI-Powered Flood & Disaster Management Platform",
+    "description": "Offline-first hybrid mobile and control room platform for flood and disaster mitigation. Features centralized AI insights, offline BLE/Wi-Fi mesh communication, LoRa gateway integration, real-time SOS alerts, family tracking, and QR-based safe house management for network-disrupted emergencies.",
+    "category": "Emergency/AI",
+    "technologies": [
+      "React Native",
+      "FastAPI",
+      "Convex",
+      "BLE/Wi-Fi Mesh",
+      "LoRa Gateway",
+      "AI/ML Models",
+      "Mapbox/Leaflet",
+      "Offline-First"
+    ],
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=800&fit=crop&q=90",
+    "liveUrl": "",
+    "githubUrl": "",
+    "featured": false,
+    "order": 7
+  },
+  {
+    "id": "4",
+    "title": "Webly.io - AI Web Development Platform",
+    "description": "AI-powered web development platform generating production-ready code from natural language descriptions. Features real-time collaboration, component library, and one-click deployment with token-based pricing. Converts descriptions into deployable Next.js applications with live preview.",
+    "category": "AI/No-Code",
+    "technologies": [
+      "Next.js",
+      "Convex",
+      "AI Models",
+      "Real-time Collaboration",
+      "Token-based Pricing"
+    ],
+    "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=800&fit=crop&q=90",
+    "liveUrl": "https://webly-io.vercel.app/",
+    "githubUrl": "https://github.com/melo-maniac-29/webly.io",
+    "featured": false,
+    "order": 8
+  },
+  {
+    "id": "1",
+    "title": "Career Guidance System",
+    "description": "AI-powered career counseling platform helping students explore educational paths through aptitude testing and personalized recommendations. Features ML-based career path matching, comprehensive college discovery engine, and progress tracking with integrated education database.",
+    "category": "EdTech/AI",
+    "technologies": [
+      "Next.js 13.5",
+      "React 18",
+      "TypeScript",
+      "Clerk",
+      "Convex",
+      "Python",
+      "ML"
+    ],
+    "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&h=800&fit=crop&q=90",
+    "liveUrl": "https://carrier-guidance-black.vercel.app/",
+    "githubUrl": "",
+    "featured": false,
+    "order": 9
+  },
+  {
+    "id": "2",
+    "title": "AI Content Processor",
+    "description": "Multi-source content processing platform using LangChain and LangGraph. Processes YouTube videos, documents, and workflows with intelligent extraction, AI summarization, and interactive Q&A. Features workflow automation with vector database integration and conversational interface.",
+    "category": "AI/NLP",
+    "technologies": [
+      "Next.js 15",
+      "React 19",
+      "LangChain",
+      "LangGraph",
+      "Clerk",
+      "Convex",
+      "wxflows"
+    ],
+    "image": "https://images.unsplash.com/photo-1655720828018-edd2daec9349?w=1200&h=800&fit=crop&q=90",
+    "liveUrl": "",
+    "githubUrl": "https://github.com/melo-maniac-29/Ai-Agent-IBM-watson-tools-langcahin",
+    "featured": false,
+    "order": 10
+  }
+]

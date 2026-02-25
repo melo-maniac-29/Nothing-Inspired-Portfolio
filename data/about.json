@@ -1,0 +1,50 @@
+{
+  "headline": "AI Engineer specializing in Agentic Systems & Production ML",
+  "description": "Fourth-year engineering student building production-grade AI systems and autonomous agents. National hackathon winner with hands-on experience deploying LLM-powered applications at scale. I focus on bridging research innovations with real-world deployment challenges.",
+  "skills": [
+    "Agentic AI & LangGraph",
+    "Python & FastAPI",
+    "Production ML Systems",
+    "Local LLMs & Optimization",
+    "NLP & Language Models",
+    "System Architecture & APIs"
+  ],
+  "experience": [
+    {
+      "role": "AI Engineer",
+      "company": "Eallisto",
+      "period": "Oct 2025 - Present",
+      "description": "Building production AI agents and LLM-integrated applications. Architecting multi-agent systems with LangGraph and deploying local LLM solutions for enterprise clients with focus on resource optimization and scalability."
+    },
+    {
+      "role": "AI Product Engineer Intern",
+      "company": "Eallisto",
+      "period": "Jun 2025 - Oct 2025",
+      "description": "Developed AI-powered data analysis pipeline for ERP system processing 100K+ financial records daily. Built production agent handling complex financial queries with 95%+ accuracy, reducing analysis time from hours to minutes and API costs by 60% through intelligent caching."
+    },
+    {
+      "role": "NLP Research Intern",
+      "company": "Indian Institute of Information Technology, Kottayam",
+      "period": "May 2025 - Jul 2025",
+      "description": "Research on autonomous AI agents using LangChain and local LLMs. Prototyped 7-node agentic workflow architecture achieving 50% reduction in LLM inference calls through optimized pipeline design and resource-conscious GPU management."
+    },
+    {
+      "role": "Web Developer",
+      "company": "Cek Lumiere",
+      "period": "Jan 2025 - Mar 2025",
+      "description": "Developed official website for national-level techno-cultural festival handling 5000+ participant registrations. Built responsive Next.js platform with real-time event updates, live leaderboards, and maintained 99.9% uptime during peak traffic."
+    },
+    {
+      "role": "Project Intern",
+      "company": "Kerala Youth Leadership Academy (KYLA)",
+      "period": "May 2024 - Mar 2025",
+      "description": "Thrive project intern attending training sessions and working on project activities focused on youth development and community engagement initiatives."
+    },
+    {
+      "role": "Program Facilitator",
+      "company": "Tinkerhub",
+      "period": "Sept 2022 - May 2024",
+      "description": "Attended campus leadership summit and facilitated various programs on web development and AI technologies, helping students learn modern development practices and AI fundamentals."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "title": "AI Engineering",
+    "description": "Building intelligent systems with agentic AI, LLMs, and advanced ML models for real-world applications",
+    "icon": "code"
+  },
+  {
+    "title": "AI Automation",
+    "description": "Developing autonomous AI agents and workflow automation solutions to streamline complex processes",
+    "icon": "zap"
+  },
+  {
+    "title": "NLP Research & Development",
+    "description": "Natural language processing research, custom language models, and conversational AI systems",
+    "icon": "lightbulb"
+  }
+]

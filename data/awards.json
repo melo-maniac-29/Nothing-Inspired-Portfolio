@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "title": "National Hackathon Winner",
+    "organization": "Electrifex (HACKEFX)",
+    "year": "2025",
+    "category": "Innovation & Technical Excellence",
+    "project": "Remote CAN Bus Data Analytics Dashboard - Real-time vehicle diagnostics platform processing CAN bus data streams with ML-based anomaly detection for predictive maintenance",
+    "featured": true,
+    "order": 1
+  },
+  {
+    "id": "2",
+    "title": "State Hackathon First Prize",
+    "organization": "iHack 2025",
+    "year": "2025",
+    "category": "Problem Solving & AI Innovation",
+    "project": "AI-powered smart energy ecosystem for KSEB smart meters with real-time monitoring, predictive analytics, and automated sustainability insights demonstrating 30% potential energy savings",
+    "featured": true,
+    "order": 2
+  }
+]
