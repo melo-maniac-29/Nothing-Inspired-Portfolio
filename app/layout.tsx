@@ -7,6 +7,15 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
 import personalData from '@/data/personal.json';
 
+function isValidUrl(url: string) {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === 'https:' || parsed.protocol === 'http:';
+  } catch {
+    return false;
+  }
+}
+
 export const metadata: Metadata = {
   title: `${personalData.name} - ${personalData.title}`,
   description: personalData.bio,
@@ -43,7 +52,7 @@ export default function RootLayout({
                   </div>
                   
                   <div className="flex items-center gap-6">
-                    {personalData.social.github && (
+                    {personalData.social.github && isValidUrl(personalData.social.github) && (
                       <Link 
                         href={personalData.social.github}
                         target="_blank"
@@ -53,7 +62,7 @@ export default function RootLayout({
                         <Github size={20} />
                       </Link>
                     )}
-                    {personalData.social.linkedin && (
+                    {personalData.social.linkedin && isValidUrl(personalData.social.linkedin) && (
                       <Link 
                         href={personalData.social.linkedin}
                         target="_blank"
