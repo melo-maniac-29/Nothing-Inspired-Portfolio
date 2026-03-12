@@ -17,14 +17,14 @@ export function NothingText({ texts, className = '', interval = 3000 }: NothingT
 
   useEffect(() => {
     const currentText = texts[currentIndex];
-    
+
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         if (charIndex < currentText.length) {
           setDisplayText(currentText.substring(0, charIndex + 1));
           setCharIndex(charIndex + 1);
         } else {
-          setTimeout(() => setIsDeleting(true), interval);
+          setIsDeleting(true);
         }
       } else {
         if (charIndex > 0) {
@@ -38,7 +38,14 @@ export function NothingText({ texts, className = '', interval = 3000 }: NothingT
     }, isDeleting ? 50 : 100);
 
     return () => clearTimeout(timeout);
-  }, [charIndex, currentIndex, isDeleting, texts, interval]);
+  }, [charIndex, currentIndex, isDeleting, texts]);
+
+  useEffect(() => {
+    if (isDeleting && charIndex === texts[currentIndex].length) {
+      const delayTimeout = setTimeout(() => setCharIndex(charIndex - 1), interval);
+      return () => clearTimeout(delayTimeout);
+    }
+  }, [isDeleting, charIndex, currentIndex, texts, interval]);
 
   return (
     <div className={`inline-flex items-center ${className}`}>
