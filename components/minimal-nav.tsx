@@ -24,6 +24,8 @@ export function MinimalNav() {
   const backgroundOpacity = useTransform(scrollY, [0, 100], [0, 0.95]);
   const borderOpacity = useTransform(scrollY, [0, 100], [0, 0.15]);
 
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+
   return (
     <motion.nav
       className="fixed top-0 left-0 right-0 z-50 border-b border-border/0 backdrop-blur-xl transition-colors duration-300"
@@ -44,9 +46,7 @@ export function MinimalNav() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
-              <span className="relative text-foreground">
-                ALLEN
-              </span>
+              <span className="relative text-foreground">ALLEN</span>
             </motion.div>
           </Link>
 
@@ -62,10 +62,7 @@ export function MinimalNav() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 * i }}
                   >
-                    <Link
-                      href={item.href}
-                      className="relative group px-4 py-2"
-                    >
+                    <Link href={item.href} className="relative group px-4 py-2">
                       <span className={`text-sm font-mono tracking-wider transition-colors ${
                         isActive ? 'text-foreground font-normal' : 'text-muted-foreground hover:text-foreground'
                       }`}>
@@ -86,7 +83,7 @@ export function MinimalNav() {
 
             {/* Theme Toggle */}
             <motion.button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={toggleTheme}
               className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -110,16 +107,12 @@ export function MinimalNav() {
           <div className="md:hidden flex items-center gap-2">
             {/* Theme Toggle */}
             <motion.button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={toggleTheme}
               className="p-2 text-foreground"
               whileTap={{ scale: 0.95 }}
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
+              {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </motion.button>
 
             {/* Mobile Menu Button */}
@@ -129,17 +122,14 @@ export function MinimalNav() {
               whileTap={{ scale: 0.95 }}
               aria-label="Toggle menu"
             >
-              <motion.div
-                animate={{ rotate: isOpen ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-              >
+              <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
               </motion.div>
             </motion.button>
           </div>
         </div>
 
-        {/* Mobile Navigation with Stunning Animation */}
+        {/* Mobile Navigation */}
         {isOpen && (
           <motion.div
             className="md:hidden mt-8 pb-6 border-t border-border/20"
