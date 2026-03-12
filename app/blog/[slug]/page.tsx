@@ -13,6 +13,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
   if (!post) {
     notFound();
+    return; // Added return to stop execution after notFound()
   }
 
   return <BlogPostClient post={post} />;
