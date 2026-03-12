@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef, ReactNode } from 'react';
+import { useRef, ReactNode, useEffect } from 'react';
 
 interface MagneticProps {
   children: ReactNode;
@@ -110,8 +110,6 @@ export function ParallaxText({ children, speed = 0.5 }: { children: ReactNode; s
     </div>
   );
 }
-
-import { useEffect } from 'react';
 
 export function GlowCard({ children, className = '' }: { children: ReactNode; className?: string }) {
   const cardRef = useRef<HTMLDivElement>(null);
