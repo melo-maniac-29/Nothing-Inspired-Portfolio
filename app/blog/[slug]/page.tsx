@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import postsData from "@/data/posts.json";
+import fs from "fs/promises";
+import path from "path";
 import { BlogPostClient } from "./BlogPostClient";
 
 interface BlogPostPageProps {
@@ -8,12 +9,15 @@ interface BlogPostPageProps {
   };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = postsData.find(p => p.slug === params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const postsFile = path.join(process.cwd(), "data/posts.json");
+  const postsData = JSON.parse(await fs.readFile(postsFile, "utf-8"));
+
+  const post = postsData.find((p: any) => p.slug === params.slug);
 
   if (!post) {
     notFound();
-    return; // Added return to stop execution after notFound()
+    return;
   }
 
   return <BlogPostClient post={post} />;
@@ -21,7 +25,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
-  return postsData.map((post) => ({
+  const postsFile = path.join(process.cwd(), "data/posts.json");
+  const postsData = JSON.parse(await fs.readFile(postsFile, "utf-8"));
+
+  return postsData.map((post: any) => ({
     slug: post.slug,
   }));
 }
