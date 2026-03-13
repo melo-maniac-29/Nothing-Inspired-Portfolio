@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 interface AestheticBackgroundProps {
