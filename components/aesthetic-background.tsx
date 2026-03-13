@@ -39,7 +39,7 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
-      if (frame.current) cancelAnimationFrame(frame.current);
+      if (frame.current !== null) cancelAnimationFrame(frame.current);
     };
   }, []);
 
