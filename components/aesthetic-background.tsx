@@ -12,23 +12,28 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const frame = useRef<number | null>(null);
-  
+  const lastEvent = useRef<MouseEvent | null>(null);
+
   const springConfig = { damping: 25, stiffness: 150 };
   const x = useSpring(mouseX, springConfig);
   const y = useSpring(mouseY, springConfig);
 
   useEffect(() => {
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    
+
     const handleResize = () => {
       setDimensions({ width: window.innerWidth, height: window.innerHeight });
     };
 
     const handleMouseMove = (e: MouseEvent) => {
+      lastEvent.current = e;
       if (frame.current === null) {
         frame.current = requestAnimationFrame(() => {
-          mouseX.set(e.clientX);
-          mouseY.set(e.clientY);
+          if (lastEvent.current) {
+            mouseX.set(lastEvent.current.clientX);
+            mouseY.set(lastEvent.current.clientY);
+            lastEvent.current = null;
+          }
           frame.current = null;
         });
       }
