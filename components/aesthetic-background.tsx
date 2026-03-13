@@ -12,23 +12,28 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const frame = useRef<number | null>(null);
-  
+  const lastMouseEvent = useRef<MouseEvent | null>(null);
+
   const springConfig = { damping: 25, stiffness: 150 };
   const x = useSpring(mouseX, springConfig);
   const y = useSpring(mouseY, springConfig);
 
   useEffect(() => {
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    
+
     const handleResize = () => {
       setDimensions({ width: window.innerWidth, height: window.innerHeight });
     };
 
     const handleMouseMove = (e: MouseEvent) => {
+      lastMouseEvent.current = e;
       if (frame.current === null) {
         frame.current = requestAnimationFrame(() => {
-          mouseX.set(e.clientX);
-          mouseY.set(e.clientY);
+          if (lastMouseEvent.current) {
+            mouseX.set(lastMouseEvent.current.clientX);
+            mouseY.set(lastMouseEvent.current.clientY);
+            lastMouseEvent.current = null;
+          }
           frame.current = null;
         });
       }
@@ -61,7 +66,7 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
         const randomX = (i * 137.5) % dimensions.width;
         const randomY = (i * 47.3) % dimensions.height;
         const targetY = ((i * 73.7) % dimensions.height);
-        
+
         return (
           <motion.div
             key={i}
