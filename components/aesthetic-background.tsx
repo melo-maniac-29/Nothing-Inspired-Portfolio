@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 interface AestheticBackgroundProps {
   particleCount?: number;
@@ -17,6 +17,15 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
   const springConfig = { damping: 25, stiffness: 150 };
   const x = useSpring(mouseX, springConfig);
   const y = useSpring(mouseY, springConfig);
+
+  const particlePositions = useMemo(() => {
+    return Array.from({ length: particleCount }).map((_, i) => ({
+      randomX: (i * 137.5) % dimensions.width,
+      randomY: (i * 47.3) % dimensions.height,
+      targetY: (i * 73.7) % dimensions.height,
+      leftPercent: (i * 3.7) % 100,
+    }));
+  }, [particleCount, dimensions]);
 
   useEffect(() => {
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
@@ -62,36 +71,28 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_110%)]" />
 
       {/* Floating Particles */}
-      {Array.from({ length: particleCount }).map((_, i) => {
-        const randomX = (i * 137.5) % dimensions.width;
-        const randomY = (i * 47.3) % dimensions.height;
-        const targetY = ((i * 73.7) % dimensions.height);
-
-        return (
-          <motion.div
-            key={i}
-            initial={{
-              x: randomX,
-              y: randomY,
-              scale: 0,
-            }}
-            animate={{
-              y: [randomY, targetY, randomY],
-              scale: [0, 1, 0],
-            }}
-            transition={{
-              duration: (i % 3 + 1) * 5 + 10,
-              repeat: Infinity,
-              ease: 'linear',
-              delay: (i * 0.3) % 5,
-            }}
-            className="absolute w-1 h-1 bg-accent/30 rounded-full"
-            style={{
-              left: `${(i * 3.7) % 100}%`,
-            }}
-          />
-        );
-      })}
+      {particlePositions.map((pos, i) => (
+        <motion.div
+          key={i}
+          initial={{
+            x: pos.randomX,
+            y: pos.randomY,
+            scale: 0,
+          }}
+          animate={{
+            y: [pos.randomY, pos.targetY, pos.randomY],
+            scale: [0, 1, 0],
+          }}
+          transition={{
+            duration: (i % 3 + 1) * 5 + 10,
+            repeat: Infinity,
+            ease: 'linear',
+            delay: (i * 0.3) % 5,
+          }}
+          className="absolute w-1 h-1 bg-accent/30 rounded-full"
+          style={{ left: `${pos.leftPercent}%` }}
+        />
+      ))}
 
       {/* Accent Lines */}
       <motion.div
