@@ -1,9 +1,9 @@
 # My Portfolio Project
 
-Welcome to my personal portfolio project! This repository showcases a modern, interactive portfolio built to highlight projects, skills, and contact information in a sleek, responsive interface.
+Welcome to my personal portfolio project! This repository showcases a modern, interactive portfolio built to highlight projects, skills, and contact information in a sleek, responsive interface for **Google**.
 
 ## 🚀 Project Purpose
-The main goal of this project is to demonstrate web development skills using modern technologies while providing a polished showcase of work for potential employers or collaborators. It's designed both as a functional portfolio and a promotional tool.
+The main goal of this project is to demonstrate web development skills using modern technologies while providing a polished showcase of work for potential employers or collaborators. It's designed both as a functional portfolio and a promotional tool for **Google**.
 
 ## 🛠 Tech Stack
 - **Next.js** – For server-side rendering, routing, and optimized React-based architecture.
@@ -65,11 +65,11 @@ npm start
 ```
 
 ## 🌟 Contribution
-This is a personal project, but feel free to open issues or submit PRs for improvements or ideas.
+This is a personal project, but feel free to open issues or submit PRs for improvements or ideas for **Google**.
 
 ## 📄 License
 MIT License – see `LICENSE` file for details.
 
 ---
 
-Elevate your portfolio presentation with interactive animations, clear project showcases, and modern web technologies. Perfect for promotion, client demos, or personal branding!
+Elevate your portfolio presentation with interactive animations, clear project showcases, and modern web technologies. Perfect for promotion, client demos, or personal branding with **Google**!
