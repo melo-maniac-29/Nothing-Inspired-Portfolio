@@ -5,8 +5,7 @@ import { Calendar, Clock, ArrowRight, Filter, BookOpen } from "lucide-react";
 import { AestheticBackground } from "@/components/aesthetic-background";
 import { RevealOnScroll, Magnetic } from "@/components/micro-interactions";
 import postsData from "@/data/posts.json";
-import Link from "next/link";
-import { useState } from "react";
+
 
 export default function BlogPage() {
   const posts = postsData;
