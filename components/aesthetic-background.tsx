@@ -20,12 +20,12 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
 
   const particlePositions = useMemo(() => {
     return Array.from({ length: particleCount }).map((_, i) => ({
-      randomX: (i * 137.5) % dimensions.width,
-      randomY: (i * 47.3) % dimensions.height,
-      targetY: (i * 73.7) % dimensions.height,
+      randomX: Math.random() * 1920,
+      randomY: Math.random() * 1080,
+      targetY: Math.random() * 1080,
       leftPercent: (i * 3.7) % 100,
     }));
-  }, [particleCount, dimensions]);
+  }, [particleCount]);
 
   useEffect(() => {
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
