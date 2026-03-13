@@ -13,6 +13,7 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
   const mouseY = useMotionValue(0);
   const frame = useRef<number | null>(null);
   const lastMouseEvent = useRef<MouseEvent | null>(null);
+  const isMounted = useRef(true);
 
   const springConfig = { damping: 25, stiffness: 150 };
   const x = useSpring(mouseX, springConfig);
@@ -22,6 +23,7 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
 
     const handleResize = () => {
+      if (!isMounted.current) return;
       setDimensions({ width: window.innerWidth, height: window.innerHeight });
     };
 
@@ -29,6 +31,7 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
       lastMouseEvent.current = e;
       if (frame.current === null) {
         frame.current = requestAnimationFrame(() => {
+          if (!isMounted.current) return;
           if (lastMouseEvent.current) {
             mouseX.set(lastMouseEvent.current.clientX);
             mouseY.set(lastMouseEvent.current.clientY);
@@ -41,7 +44,9 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('resize', handleResize);
+
     return () => {
+      isMounted.current = false;
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
       if (frame.current) cancelAnimationFrame(frame.current);
