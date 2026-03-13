@@ -12,13 +12,13 @@
   "experience": [
     {
       "role": "AI Engineer",
-      "company": "Eallisto",
+      "company": "Google",
       "period": "Oct 2025 - Present",
       "description": "Building production AI agents and LLM-integrated applications. Architecting multi-agent systems with LangGraph and deploying local LLM solutions for enterprise clients with focus on resource optimization and scalability."
     },
     {
       "role": "AI Product Engineer Intern",
-      "company": "Eallisto",
+      "company": "Google",
       "period": "Jun 2025 - Oct 2025",
       "description": "Developed AI-powered data analysis pipeline for ERP system processing 100K+ financial records daily. Built production agent handling complex financial queries with 95%+ accuracy, reducing analysis time from hours to minutes and API costs by 60% through intelligent caching."
     },
