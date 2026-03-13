@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 interface AestheticBackgroundProps {
@@ -11,6 +11,7 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
   const [dimensions, setDimensions] = useState({ width: 1920, height: 1080 });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const frame = useRef<number | null>(null);
   
   const springConfig = { damping: 25, stiffness: 150 };
   const x = useSpring(mouseX, springConfig);
@@ -22,10 +23,15 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
     const handleResize = () => {
       setDimensions({ width: window.innerWidth, height: window.innerHeight });
     };
-    
+
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
+      if (frame.current === null) {
+        frame.current = requestAnimationFrame(() => {
+          mouseX.set(e.clientX);
+          mouseY.set(e.clientY);
+          frame.current = null;
+        });
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -33,6 +39,7 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
+      if (frame.current) cancelAnimationFrame(frame.current);
     };
   }, []);
 
