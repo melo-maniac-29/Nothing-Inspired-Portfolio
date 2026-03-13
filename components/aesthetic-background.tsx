@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
-
 export function AestheticBackground() {
   const [dimensions, setDimensions] = useState({ width: 1920, height: 1080 });
   const mouseX = useMotionValue(0);
@@ -15,21 +14,28 @@ export function AestheticBackground() {
 
   useEffect(() => {
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    
+
     const handleResize = () => {
       setDimensions({ width: window.innerWidth, height: window.innerHeight });
     };
-    
+
+    let frame: number | null = null;
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        mouseX.set(e.clientX);
+        mouseY.set(e.clientY);
+        frame = null;
+      });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('resize', handleResize);
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
+      if (frame) cancelAnimationFrame(frame);
     };
   }, []);
 
@@ -154,12 +160,20 @@ export function NothingGlow() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    let frame: number | null = null;
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        setPosition({ x: e.clientX, y: e.clientY });
+        frame = null;
+      });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
   return (
