@@ -31,7 +31,7 @@ export function AestheticBackground() {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
     };
-  }, [mouseX, mouseY]);
+  }, []);
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
