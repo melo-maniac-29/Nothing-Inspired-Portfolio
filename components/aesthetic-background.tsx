@@ -3,8 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
+interface AestheticBackgroundProps {
+  particleCount?: number;
+}
 
-export function AestheticBackground() {
+export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundProps) {
   const [dimensions, setDimensions] = useState({ width: 1920, height: 1080 });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -47,7 +50,7 @@ export function AestheticBackground() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_110%)]" />
 
       {/* Floating Particles */}
-      {Array.from({ length: 30 }).map((_, i) => {
+      {Array.from({ length: particleCount }).map((_, i) => {
         const randomX = (i * 137.5) % dimensions.width;
         const randomY = (i * 47.3) % dimensions.height;
         const targetY = ((i * 73.7) % dimensions.height);
