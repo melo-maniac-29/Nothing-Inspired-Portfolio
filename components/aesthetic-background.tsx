@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { useEffect, useState } from 'react';
+
 
 export function AestheticBackground() {
   const [dimensions, setDimensions] = useState({ width: 1920, height: 1080 });
