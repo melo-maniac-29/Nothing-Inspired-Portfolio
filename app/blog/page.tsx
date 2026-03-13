@@ -11,16 +11,21 @@ import { useState } from "react";
 export default function BlogPage() {
   const posts = postsData;
   const [filter, setFilter] = useState("all");
-  
+
   const categories = ["all", ...Array.from(new Set(posts.map(p => p.category)))];
-  const filteredPosts = filter === "all" 
-    ? posts 
+  const filteredPosts = filter === "all"
+    ? posts
     : posts.filter(p => p.category === filter);
+
+  const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr);
+    return isNaN(date.getTime()) ? "Invalid Date" : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  };
 
   return (
     <main className="min-h-screen relative overflow-hidden">
       <AestheticBackground />
-      
+
       <div className="relative pt-32 px-4 md:px-6 pb-20">
         <div className="max-w-7xl mx-auto space-y-16">
           {/* Header */}
@@ -112,7 +117,7 @@ export default function BlogPage() {
                 >
                   {/* Hover Glow */}
                   <div className="absolute -inset-4 bg-gradient-to-br from-zinc-200/0 via-zinc-200/5 to-zinc-200/0 dark:from-zinc-800/0 dark:via-zinc-800/10 dark:to-zinc-800/0 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500" />
-                  
+
                   <Link 
                     href={`/blog/${post.slug}`}
                     className="block relative h-full group-hover:bg-background/50 backdrop-blur-sm p-6 md:p-8 transition-colors duration-300 border border-zinc-200 dark:border-zinc-800 group-hover:border-foreground/20"
@@ -127,7 +132,7 @@ export default function BlogPage() {
                       <div className="flex items-center gap-4 text-xs text-muted-foreground font-mono">
                         <span className="flex items-center gap-1.5">
                           <Calendar className="w-3 h-3" />
-                          {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                          {formatDate(post.date)}
                         </span>
                         <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
                         <span className="flex items-center gap-1.5">
