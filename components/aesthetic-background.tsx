@@ -18,14 +18,17 @@ export function AestheticBackground({ particleCount = 30 }: AestheticBackgroundP
   const x = useSpring(mouseX, springConfig);
   const y = useSpring(mouseY, springConfig);
 
+  // Destructure width and height to stabilize dependencies for useMemo
+  const { width, height } = dimensions;
+
   const particlePositions = useMemo(() => {
     return Array.from({ length: particleCount }).map((_, i) => ({
-      randomX: (i * 137.5) % dimensions.width,
-      randomY: (i * 47.3) % dimensions.height,
-      targetY: (i * 73.7) % dimensions.height,
+      randomX: (i * 137.5) % width,
+      randomY: (i * 47.3) % height,
+      targetY: (i * 73.7) % height,
       leftPercent: (i * 3.7) % 100,
     }));
-  }, [particleCount, dimensions]);
+  }, [particleCount, width, height]);
 
   useEffect(() => {
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
